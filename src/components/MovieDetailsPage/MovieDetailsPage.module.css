@@ -1,5 +1,6 @@
 .imgContainer {
   display: flex;
+  gap: 6px;
   flex-direction: column;
 }
 .img {
@@ -15,11 +16,15 @@
   padding: 0;
 }
 .container {
+  margin-top: 5px;
+  margin-left: 10px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .filmDescribe {
-  margin-top: 40px;
+  margin-top: 5px;
+  display: flex;
+  flex-direction: row;
 }
 .item {
   text-decoration: none;

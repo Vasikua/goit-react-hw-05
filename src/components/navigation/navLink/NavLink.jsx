@@ -7,14 +7,10 @@ export default function Navigation() {
     }
     return (
         <nav>
-            <NavLink 
-            className={getNavLink} 
-                to='/'>
+            <NavLink  className={getNavLink} to='/'>
                 Home
             </NavLink>
-            <NavLink 
-            className={getNavLink} 
-                to='/movies'>
+            <NavLink   className={getNavLink} to='/movies'>
                 Movies
             </NavLink>
         </nav>

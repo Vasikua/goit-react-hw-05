@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import MovieList from '../../components/movieList/MovieList';
 import css from './HomePage.module.css';
-import Error from '../../components/error/Error';
 import { getTopMovies } from '../../../movies-API';
+import Error from '../../components/error/Error';
 import Loader from '../../components/loader/Loader';
 export default function HomePage() {
  
@@ -14,36 +14,22 @@ export default function HomePage() {
             try {
                 setError(false);
                 setIsLoading(true);
-                const data = await getTopMovies(); 
+                const data = await getTopMovies();
                 setTopMovies(data.result.results);
-                } catch (error) {
+            } catch (error) {
                 setError(true);
-        } finally {
+            } finally {
                 setIsLoading(false);
-        }    
-            
+            }
         }
         getFetchmovies()
-   },[])
-    console.log(topMovies);
+    }, [])
+   
     return (<>
-        {isloading && <Loader />}
-        {error && <Error/>}
-        {!isloading && !error &&  
-            <div>
-                <h1>Trending today</h1>
-                <div>
-                    <ul className={css.list}>
-                        {topMovies.map((movies) => (
-                            <li key={movies.id}>
-                            <Link to={`/movies/:${movies.id}`}><p>{movies.original_title }</p></Link>
-                            </li>
-                        )
-                        )}
-                    </ul>
-                </div>
-            </div>
-        }
+        <h1 className={css.title}>Trending today</h1>
+        {isloading && <Loader/>}
+        {error && <Error />}
+        {!isloading && !error && <MovieList Movies={topMovies }/>} 
     </>)
 }
 

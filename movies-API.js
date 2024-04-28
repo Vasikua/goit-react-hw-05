@@ -17,6 +17,7 @@ export const getTopMovies = async () => {
    
     return {
         result: response.data
+
     }
 }
 
@@ -58,5 +59,6 @@ export const getSearchMovies = async (query) => {
     })
     return {
         result: response.data
+        
     }
 }
