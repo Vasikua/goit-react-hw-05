@@ -1,6 +1,6 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Outlet, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { GoArrowLeft } from "react-icons/go";
+import GoBackBtn from '../goBackBtn/GoBackBtn';
 import Loader from '../loader/Loader';
 import { getMoviesDetalies } from '../../../movies-API';
 import css from './MovieDetailsPage.module.css';
@@ -28,33 +28,43 @@ export default function MovieDetailsPage() {
         getFetchMoviesById();
     }, [movieId]) 
     
-   console.log(moviesDetail)
+
     
     return (  <> 
         { isloading && <Loader />}
         {!isloading && !error && moviesDetail && (
             <div className={css.container}>
                 <div  className={css.filmDescribe}>
-                <div className={css.imgContainer}>
-                    <button className={css.goBackBtn}><GoArrowLeft />Go back</button>
-                    <img className={css.img} src={`https://image.tmdb.org/t/p/original/${moviesDetail.result.poster_path}`} alt="title" />
-                </div>
+                    <div className={css.imgContainer}>
+                        <GoBackBtn/>
+                        <img className={css.img} src={`https://image.tmdb.org/t/p/original/${moviesDetail.result.poster_path}`} alt="title" />
+                    </div>
                 
-                <ul>
-                <li className={css.item, css.title}><h2>{moviesDetail.result.original_title}</h2></li>
-                <li className={css.item, css.score}>User Score:{moviesDetail.result.popularity}</li>
-                <li className={css.item, css.overview}><h3>Overview</h3></li>
-                <li className={css.item, css.overviewDescr}>{moviesDetail.result.overview}</li>
-                <li className={css.item, css.genres}><h3>Ganres</h3></li>
-                <li className={css.item, css.genresDescr}>{moviesDetail.result.genres.map(genre => genre.name).join(', ')}</li>
+                    <ul>
+                        <li className={css.title}><h2>{moviesDetail.result.original_title}</h2></li>
+                        <li className={css.score}>User Score:{moviesDetail.result.popularity}</li>
+                        <li className={css.overview}><h3>Overview</h3></li>
+                        <li className={css.overviewDescr}>{moviesDetail.result.overview}</li>
+                        <li className={css.genres}><h3>Ganres</h3></li>
+                        <li className={css.genresDescr}>{moviesDetail.result.genres.map(genre => genre.name).join(', ')}</li>
                     </ul>
                 </div>
-                <h3 className={css.titleAdditionalInfo}>additional infomation</h3>
-            <ul className={css.additionalInfo}>
-                <li className={css.additionalInfoItem}>text</li>
-                <li className={css.additionalInfoItem}>text</li>
-            </ul>
-        </div> )}
-        </> 
-    )
+                <div className={css.additionalInfoCont}></div>
+                <h3 className={css.title}>additional infomation</h3>
+                <ul className={css.infoList}>
+                    <NavLink to='cast'>
+                        <li className={css.infoItem}>
+                            Cast
+                        </li>
+                    </NavLink>
+                    <NavLink to='reviews'>
+                        <li className={css.infoItem}>
+                            Reviews
+                        </li>
+                    </NavLink>
+                </ul>
+                <Outlet/>
+            </div>)
+        }
+    </>)
 }

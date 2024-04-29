@@ -21,6 +21,21 @@ export const getTopMovies = async () => {
     }
 }
 
+export const getSearchMovies = async (query) => {
+    const response = await axios.get(`/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, {
+         params: {
+            api_key: API_KEY
+            },
+        headers: {
+            Authorization: `Bearer ${ACCESS_TOKEN}`
+        }
+    })
+    return {
+        result: response.data
+        
+    }
+}
+
 export const getMoviesDetalies = async (movieId) => {
     const response = await axios.get(`/movie/${movieId}?language=en-US`, {
          params: {
@@ -34,7 +49,7 @@ export const getMoviesDetalies = async (movieId) => {
         result: response.data
     }
 }
-export const getCastDetalies = async (movieId) => {
+export const getCast = async (movieId) => {
     const response = await axios.get(`/movie/${movieId}/credits?language=en-US`, {
          params: {
             api_key: API_KEY
@@ -48,8 +63,9 @@ export const getCastDetalies = async (movieId) => {
     }
 }
 
-export const getSearchMovies = async (query) => {
-    const response = await axios.get(`/search/movie?query=${query}&include_adult=false&language=en-US&page=1`, {
+
+export const getReviews = async (movieId) => {
+    const response = await axios.get(`/movie/${movieId}/reviews?language=en-US&page=1`, {
          params: {
             api_key: API_KEY
             },
@@ -59,6 +75,5 @@ export const getSearchMovies = async (query) => {
     })
     return {
         result: response.data
-        
     }
 }

@@ -1,0 +1,22 @@
+.list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 20px;
+}
+.item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  row-gap: 30px;
+  column-gap: 20px;
+}
+.homeImg {
+  width: 200px;
+}
+.name {
+  max-width: 200px;
+  width: 100%;
+  text-align: center;
+}

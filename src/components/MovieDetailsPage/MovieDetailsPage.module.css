@@ -4,20 +4,11 @@
   flex-direction: column;
 }
 .img {
-  max-width: 150px;
+  max-width: 300px;
 }
 
-.goBackBtn {
-  border: 1px solid grey;
-  border-radius: 3px;
-  width: 120px;
-  height: 30px;
-  background-color: aliceblue;
-  padding: 0;
-}
 .container {
-  margin-top: 5px;
-  margin-left: 10px;
+  margin: 10px 15px;
   display: flex;
   flex-direction: column;
 }
@@ -26,6 +17,9 @@
   display: flex;
   flex-direction: row;
 }
-.item {
-  text-decoration: none;
+li {
+  list-style: none;
+}
+.additionalInfoItem {
+  list-style: circle;
 }

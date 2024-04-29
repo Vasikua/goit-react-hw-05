@@ -17,7 +17,7 @@ export default function MoviesPage() {
     useEffect(() => {
       
         if (query === '') {
-            console.log('empty field')
+          
             return
         }
         async function getFetchmovies() {
