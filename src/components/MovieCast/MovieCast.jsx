@@ -38,7 +38,7 @@ export default function MovieCast() {
                     casts.map((cast) => (
                             <li key={cast.id} className={css.castItem}>
                                 <img className={css.img} src={`https://image.tmdb.org/t/p/original/${cast.profile_path}`} alt="poster" />
-                                <p>{cast.original_name}</p>
+                                <p className={css.actorName}>{cast.original_name}</p>
                                 <p>Rate: {cast.popularity}</p>
                             </li>
                           )) : (<p> no cast </p>)

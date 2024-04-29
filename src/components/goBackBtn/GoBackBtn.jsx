@@ -1,9 +1,13 @@
 import css from './GoBackBtn.module.css';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useRef } from 'react';
+
 import { GoArrowLeft } from "react-icons/go";
 export default function GoBackBtn() {
+    const location = useLocation();
+    const goBackBtn = useRef(location.state ?? '/')
     return (<>
-        <Link to={'/movies'}>
+        <Link to={goBackBtn.current}>
             <button className={css.goBackBtn}>
                 <GoArrowLeft className={css.svg} />
                 Go back
