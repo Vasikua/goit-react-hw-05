@@ -13,9 +13,9 @@ export default function MoviesPage() {
     const [searchMovies, setSearchMovies] = useState([]);
     const [params, setParams] = useSearchParams();
     const query = params.get('query');
-     
+     console.log(query)
     useEffect(() => {
-        if (query==="" ||query==="null") {
+        if (query==="" || query===null) {
             return
         }
         async function getFetchmovies() {
