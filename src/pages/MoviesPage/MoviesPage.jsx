@@ -8,16 +8,14 @@ import { getSearchMovies } from '../../../movies-API';
 import { useEffect, useState } from 'react';
 
 export default function MoviesPage() {
-   
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [searchMovies, setSearchMovies] = useState([]);
     const [params, setParams] = useSearchParams();
     const query = params.get('query');
-   
-
+     
     useEffect(() => {
-        if (!query) {
+        if (query==="" ||query==="null") {
             return
         }
         async function getFetchmovies() {
