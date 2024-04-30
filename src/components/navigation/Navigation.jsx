@@ -1,4 +1,4 @@
-import css from "./NavLink.module.css";
+import css from "./Navigation.module.css";
 import clsx from "clsx";
 import { NavLink } from "react-router-dom";
 export default function Navigation() {

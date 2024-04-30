@@ -1,6 +1,8 @@
+
 import css from './SearchForm.module.css';
 import toast, {Toaster} from 'react-hot-toast';
-export default function SearchForm({onSubmit}) {
+export default function SearchForm({ onSubmit}) {
+
     const handleSubmit = (event) => {
         event.preventDefault();
         const query = event.target.query.value.trim();

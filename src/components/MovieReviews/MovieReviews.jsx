@@ -10,8 +10,13 @@ export default function MoviesReviews( ) {
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [reviews, setReviews] = useState([]);
-    const movieId = movie.slice(1);
-   
+    let movieId;
+    if (movie.includes(":")){
+       movieId = movie.slice(1);
+    } else {
+        movieId = movie;
+    }
+    
     useEffect(() =>{
         async function getFetchmovies() {
             try {
@@ -42,7 +47,7 @@ export default function MoviesReviews( ) {
 
 
                     </li>
-                )) : (<p>we don't have reviews</p>)}
+                )) : (<p>we dont have reviews</p>)}
             </ul>
         )}
     </>)

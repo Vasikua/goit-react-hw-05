@@ -3,21 +3,21 @@ import MovieList from '../../components/movieList/MovieList';
 import SearchForm from '../../components/searchForm/SearchForm';
 import Error from '../../components/error/Error';
 import Loader from '../../components/loader/Loader';
+import { useSearchParams } from 'react-router-dom';
 import { getSearchMovies } from '../../../movies-API';
 import { useEffect, useState } from 'react';
+
 export default function MoviesPage() {
-    const [query, setQuery] = useState('');
+   
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [searchMovies, setSearchMovies] = useState([]);
-    const handleSerch = (query) => {
-        setQuery(query);
-    }
-    
+    const [params, setParams] = useSearchParams();
+    const query = params.get('query');
+   
+
     useEffect(() => {
-      
-        if (query === '') {
-          
+        if (!query) {
             return
         }
         async function getFetchmovies() {
@@ -25,8 +25,8 @@ export default function MoviesPage() {
                 setError(false);
                 setIsLoading(true);
                 const data = await getSearchMovies(query);
-           
                 setSearchMovies(data.result.results);
+                setParams({ query: query })
             } catch (error) {
                 setError(true);
             } finally {
@@ -34,7 +34,10 @@ export default function MoviesPage() {
             }
         }
         getFetchmovies();
-    },[query])
+    }, [query, setParams]);
+    const handleSerch = (query) => {
+            setParams({ query: query });
+    };
     return (
         <div className={css.wrapper}>
             <SearchForm className={ css.cssc} onSubmit={handleSerch} />

@@ -10,7 +10,12 @@ export default function MovieCast() {
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false); 
     const [casts, setCasts] = useState([]);
-    const movieId = movie.slice(1);
+    let movieId;
+    if (movie.includes(":")){
+       movieId = movie.slice(1);
+    } else {
+        movieId = movie;
+    }
    
     useEffect(() => {
         async function getFetchmovies() {

@@ -4,6 +4,7 @@ import css from './HomePage.module.css';
 import { getTopMovies } from '../../../movies-API';
 import Error from '../../components/error/Error';
 import Loader from '../../components/loader/Loader';
+
 export default function HomePage() {
  
     const [topMovies, setTopMovies] = useState([]);
