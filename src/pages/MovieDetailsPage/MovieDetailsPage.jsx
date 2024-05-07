@@ -6,8 +6,7 @@ import { getMoviesDetalies } from '../../../movies-API';
 
 import css from './MovieDetailsPage.module.css';
 export default function MovieDetailsPage() {
-    const {movie} = useParams();
-    const movieId = movie.slice(1);
+    const {movieId} = useParams();
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [moviesDetail, setMoviesDetail] = useState(null);
@@ -54,7 +53,7 @@ export default function MovieDetailsPage() {
                 <h3 className={css.title}>additional infomation</h3>
                 <ul className={css.infoList}>
                     <NavLink to='cast'>
-                        <li className={css.infoItem}>
+                        <li className={css.infoItem} >
                             Cast
                         </li>
                     </NavLink>

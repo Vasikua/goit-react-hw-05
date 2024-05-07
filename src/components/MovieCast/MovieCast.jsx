@@ -6,17 +6,11 @@ import css from './MovieCast.module.css';
 import { useParams } from 'react-router-dom';
 
 export default function MovieCast() {
-    const { movie } = useParams();
+    const { movieId } = useParams();
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false); 
     const [casts, setCasts] = useState([]);
-    let movieId;
-    if (movie.includes(":")){
-       movieId = movie.slice(1);
-    } else {
-        movieId = movie;
-    }
-   
+      
     useEffect(() => {
         async function getFetchmovies() {
             try {

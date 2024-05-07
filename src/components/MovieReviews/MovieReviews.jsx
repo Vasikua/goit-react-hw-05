@@ -6,16 +6,12 @@ import Loader from '../loader/Loader';
 import Error from '../error/Error';
 
 export default function MoviesReviews( ) {
-    const {movie} = useParams();
+    const {movieId} = useParams();
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
     const [reviews, setReviews] = useState([]);
-    let movieId;
-    if (movie.includes(":")){
-       movieId = movie.slice(1);
-    } else {
-        movieId = movie;
-    }
+    //   const movieId = movie.slice(1);
+   
     
     useEffect(() =>{
         async function getFetchmovies() {
