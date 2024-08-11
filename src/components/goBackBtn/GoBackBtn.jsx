@@ -10,7 +10,7 @@ export default function GoBackBtn() {
         <Link to={goBackBtn.current}>
             <button className={css.goBackBtn}>
                 <GoArrowLeft className={css.svg} />
-                Go back
+               <span className={css.text}>Go back</span> 
             </button>
         </Link>
     </>)

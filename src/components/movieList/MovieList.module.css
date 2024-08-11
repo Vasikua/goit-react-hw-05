@@ -11,9 +11,11 @@
   flex-wrap: wrap;
   row-gap: 30px;
   column-gap: 20px;
+  border-radius: 10%;
 }
 .homeImg {
   width: 200px;
+  border-radius: 50%;
 }
 .name {
   max-width: 200px;

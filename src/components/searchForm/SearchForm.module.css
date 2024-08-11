@@ -1,5 +1,20 @@
+.form {
+  display: flex;
+  flex-direction: row;
+}
+
 .input {
   border: 2px solid rgba(165, 157, 157, 0.304);
   margin-right: 7px;
   border-radius: 5px;
+}
+.searchBtn {
+  display: flex;
+  padding: 5px 34px;
+  border: none;
+  border-radius: 5px;
+  width: 120px;
+  height: 30px;
+  background-color: rgb(22, 17, 153);
+  color: rgb(255, 255, 255);
 }

@@ -1,7 +1,7 @@
 .goBackBtn {
   display: flex;
   padding: 3px 4px;
-  border: 1px solid grey;
+  border: none;
   border-radius: 5px;
   width: 120px;
   height: 30px;
@@ -9,6 +9,10 @@
   color: rgb(255, 255, 255);
 }
 .svg {
-  display: flex;
-  margin-top: 2px;
+  font-size: 20px;
+  margin-top: 3px;
+}
+.text {
+  padding-left: 20px;
+  padding-top: 3px;
 }
