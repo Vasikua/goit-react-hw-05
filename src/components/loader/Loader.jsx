@@ -8,8 +8,8 @@ return (
         <ProgressBar
             visible={true}
             height="80"
-            width="80"
-            color="#4fa94d"
+            width="1110"
+            color="red"
             ariaLabel="progress-bar-loading"
             wrapperStyle={{}}
             wrapperClass=""

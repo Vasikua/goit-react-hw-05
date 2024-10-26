@@ -8,7 +8,8 @@ export const getTopMovies = async () => {
     const response = await axios.get("/trending/movie/day", {
         params: {
             api_key: API_KEY,
-            language: 'en-US'
+            language: 'en-US',
+           
         },
         headers: {
             Authorization: `Bearer ${ACCESS_TOKEN}`

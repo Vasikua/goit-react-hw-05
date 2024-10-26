@@ -16,7 +16,7 @@ export default function MoviesPage() {
      console.log(query)
     useEffect(() => {
         if (query==="" || query===null) {
-            return
+            return;
         }
         async function getFetchmovies() {
             try {
@@ -38,7 +38,7 @@ export default function MoviesPage() {
     };
     return (
         <div className={css.wrapper}>
-            <SearchForm className={ css.cssc} onSubmit={handleSerch} />
+            <SearchForm className={ css.SearchForm} onSubmit={handleSerch} />
             {isloading && <Loader/>}
             {error && <Error />}
             {!isloading && !error && <MovieList Movies={searchMovies}/>} 

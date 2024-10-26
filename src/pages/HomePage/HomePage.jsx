@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { getTopMovies } from '../../../movies-API';
 import MovieList from '../../components/movieList/MovieList';
 import css from './HomePage.module.css';
-import { getTopMovies } from '../../../movies-API';
 import Error from '../../components/error/Error';
 import Loader from '../../components/loader/Loader';
 
@@ -10,6 +10,7 @@ export default function HomePage() {
     const [topMovies, setTopMovies] = useState([]);
     const [isloading, setIsLoading] = useState(false);
     const [error, setError] = useState(false);
+    
     useEffect(() => {
         async function getFetchmovies() {
             try {

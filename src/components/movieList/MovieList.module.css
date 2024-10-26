@@ -1,9 +1,15 @@
+/* section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Full viewport height 
+} */
 .list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  row-gap: 30px;
-  column-gap: 20px;
+  gap: 20px;
+  padding-inline-start: 7%;
 }
 .item {
   display: flex;
@@ -15,10 +21,11 @@
 }
 .homeImg {
   width: 200px;
-  border-radius: 50%;
+  border-radius: 5%;
 }
 .name {
   max-width: 200px;
   width: 100%;
   text-align: center;
+  text-decoration-line: none;
 }
